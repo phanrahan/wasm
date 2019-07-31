@@ -1,0 +1,8 @@
+emcc -Os -s EXPORTED_FUNCTIONS="['_add']" add.c -o add.wasm 
+
+wasm2wat add.wasm
+
+python wasm.py add.wasm _add 10 20
+
+node add.js
+
