@@ -1,6 +1,6 @@
 Experiments using the Web Assembly toolchain.
 
-Compile c to wat/wasm [https://wasdk.github.io/WasmFiddle/].
+Compile c to wat/wasm [WasmFiddle](https://wasdk.github.io/WasmFiddle/).
 
 Install emsdk, wabt, pywasm, and node.
 
