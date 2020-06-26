@@ -42,7 +42,21 @@ WebAssembly.instantiate(buf, {
 4
 ```
 
+# compile c to assembly language
 % riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Og -S add.c
+# assembler
+% riscv64-unknown-elf-as add.s -o add.o
+# disassembler
+% riscv64-unknown-elf-objdump -d add.o
+# convert elf to binary
+% riscv64-unknown-elf-objcopy add.o -O binary add.bin
+# disassemble binary file
+% riscv64-unknown-elf-objdump -b binary -m riscv:rv32 -D add.bin
+# hexdump
+% xxd -g 1 add.bin > add.hex
+# cool hack - convert hex file to a binary file
+% xxd -g 1 -r add.hex add2.bin
+% cmp add.bin add2.bin
 
 Install
 
