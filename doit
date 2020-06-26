@@ -6,3 +6,5 @@ python wasm.py add.wasm _add 10 20
 
 node add.js
 
+riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32  -S add.c
+

@@ -12,7 +12,7 @@ int add(int a, int b) {
 }
 
 % emcc -Os -s EXPORTED_FUNCTIONS="['_add']" -o add.wasm add.c
-% wasm2wat hello.wasm
+% wasm2wat add.wasm
 (module
   (type (;0;) (func (param i32 i32) (result i32)))
   (func (;0;) (type 0) (param i32 i32) (result i32)
@@ -41,4 +41,26 @@ WebAssembly.instantiate(buf, {
 % node add.js
 4
 ```
+
+% riscv64-unknown-elf-gcc -march=rv32i -mabi=ilp32 -Og -S add.c
+
+Install
+
+- wabt - web assembly binary toolkit
+  - https://github.com/WebAssembly/wabt
+
+- emscripten (emcc)
+  - brew install emscripten
+  - git/emsdk
+
+- pywasm
+  - https://github.com/mohanson/pywasm
+  - pip install pywasm
+
+- riscv tool chain
+  - https://github.com/riscv/homebrew-riscv
+  - https://github.com/riscv/riscv-gnu-toolchain
+  - https://github.com/riscv/riscv-isa-sim
+  - brew test riscv-tools
+  - https://www.sifive.com/blog/all-aboard-part-1-compiler-args
 
